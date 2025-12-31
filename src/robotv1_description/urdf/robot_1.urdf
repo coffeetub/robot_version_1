@@ -4,11 +4,8 @@
   <link name="base">
     <visual>
         <origin xyz="0 0 0" rpy = "0 0 0"/>
-        
         <geometry>
-        
-            <mesh filename="base.stl"/>
-        
+            <mesh filename="package://robotv1_description/meshes/base.stl"/>
         </geometry>
     
     </visual>
@@ -16,18 +13,18 @@
     <collision>
     
         <origin xyz="0 0 0" rpy = "0 0 0"/>
-        
         <geometry>
-
             <box size="0.12 0.12 0.05"/>
-
         </geometry>
-    
+
     </collision>
 
     <inertial>
-        <origin xyz
-  
+        <origin xyz="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="0.00282" ixy="0.0" ixz="0.0"
+           iyy="0.00282" iyz="0.0" izz="0.00480"/>
+    </inertial>
   </link>
 
 </robot>
