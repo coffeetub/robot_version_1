@@ -17,13 +17,13 @@
     
         <origin xyz="0 0 0" rpy = "0 0 0"/>
         <geometry>
-            <box size="0.12 0.12 0.05"/>
+            <mesh filename="package://robotv1_description/meshes/base.stl"/>
         </geometry>
 
     </collision>
 
     <inertial>
-        <origin xyz="0 0 0"/>
+        <origin xyz="0 0 0.025"/>
         <mass value="2"/>
         <inertia ixx="0.00282" ixy="0.0" ixz="0.0"
            iyy="0.00282" iyz="0.0" izz="0.00480"/>
@@ -44,9 +44,16 @@
     <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-            <box size="0.04 0.12 0.05"/> 
+            <mesh filename="package://robotv1_description/meshes/base_link.stl"/>
         </geometry>
     </collision>
+
+    <inertial>
+        <origin xyz="0 0 0.025" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia ixx="0.00282" ixy="0.0" ixz="0.0"
+           iyy="0.00282" iyz="0.0" izz="0.00480"/>
+    </inertial>
 
   </link>
 
@@ -64,7 +71,7 @@
         <visual>
             <origin xyz="0 0 -0.115430" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://robotv1_description/meshes/shoulder_link.stl"/>
+                <mesh filename="package://robotv1_description/meshes/rod_shaft.stl"/>
             </geometry>
             <material name="red">
                 <color rgba="1.0 0.0 0.0 1.0"/>
