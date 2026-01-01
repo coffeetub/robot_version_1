@@ -17,7 +17,7 @@
     
         <origin xyz="0 0 0" rpy = "0 0 0"/>
         <geometry>
-            <mesh filename="package://robotv1_description/meshes/base.stl"/>
+            <box size="0.12 0.12 0.05"/>
         </geometry>
 
     </collision>
@@ -44,13 +44,13 @@
     <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-            <mesh filename="package://robotv1_description/meshes/base_link.stl"/> 
+            <box size="0.04 0.12 0.05"/> 
         </geometry>
     </collision>
 
   </link>
 
-    <joint name="base_to_base_link" type="revolute">
+    <joint name="base_to_base_link" type="continuous">
         <parent link="base"/>
         <child link="base_link"/>
 
@@ -58,9 +58,44 @@
 
         <axis xyz="0 0 1"/>
 
-        <limit lower="-1.57" upper="1.57" effort="5" velocity="1"/>
     </joint>
 
+    <link name="shoulder">
+        <visual>
+            <origin xyz="0 0 -0.115430" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://robotv1_description/meshes/shoulder_link.stl"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
 
+    <joint name="shouler_to_base" type="revolute">
+        <parent link="base_link"/>
+        <child link="shoulder"/>
 
+        <origin xyz="0 0 0.115430"  rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-2.424" upper="0.7173303" effort="5" velocity="1"/>
+    </joint>
+
+    <link name="radar_link">
+        <visual>
+            <origin xyz="-0.099733 0 -0.204287" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://robotv1_description/meshes/radar_link.stl"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="radar_to_shoulder" type="revolute">
+        <parent link="shoulder"/>
+        <child link="radar_link"/>
+        
+        <origin xyz="0.099733 0 0.089263" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-1.57" upper="1.57" effort="5" velocity="1"/>
+    </joint>
 </robot>
