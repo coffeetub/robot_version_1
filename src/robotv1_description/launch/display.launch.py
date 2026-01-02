@@ -11,7 +11,7 @@ def generate_launch_description():
             arguments=['urdf/robot.urdf'],
             output='screen'
         ),
-
+        
         # GUI sliders for joints
         Node(
             package='joint_state_publisher_gui',
