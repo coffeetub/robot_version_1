@@ -8,7 +8,7 @@ def generate_launch_description():
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
-            arguments=['urdf/robot.urdf'],
+            arguments=['/home/krishna/robot_version_1/src/robotv1_description/urdf/robot_1.urdf'],
             output='screen'
         ),
         
